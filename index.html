@@ -125,7 +125,7 @@
         .nav-icon { font-size: 16px; min-width: 20px; text-align: center; }
         .sidebar.collapsed .nav-text { display: none; }
 
-        /* History section with persistence */
+        /* History section */
         .recent-section { flex: 1; overflow-y: auto; padding: 10px; display: flex; flex-direction: column; gap: 4px; }
         .recent-section::-webkit-scrollbar { width: 4px; }
         .recent-section::-webkit-scrollbar-thumb { background: var(--border-subtle); border-radius: 4px; }
@@ -333,14 +333,6 @@
             font-family: 'JetBrains Mono', monospace;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
         }
-        .user-img-preview {
-            max-width: 260px;
-            max-height: 220px;
-            border-radius: var(--radius-md);
-            border: 1px solid var(--primary);
-            margin-bottom: 6px;
-            display: block;
-        }
 
         .bot-bubble {
             width: 100%;
@@ -354,38 +346,6 @@
             margin: 14px 0 8px 0;
         }
 
-        /* Danger Warning Level Badge */
-        .danger-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 4px 12px;
-            border-radius: var(--radius-full);
-            font-size: 11.5px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 8px;
-        }
-        .danger-safe {
-            background: rgba(16, 185, 129, 0.15);
-            color: var(--emerald);
-            border: 1px solid rgba(16, 185, 129, 0.35);
-        }
-        .danger-caution {
-            background: rgba(245, 158, 11, 0.15);
-            color: var(--amber);
-            border: 1px solid rgba(245, 158, 11, 0.35);
-        }
-        .danger-destructive {
-            background: rgba(244, 63, 94, 0.18);
-            color: var(--rose);
-            border: 1px solid rgba(244, 63, 94, 0.4);
-            animation: pulse-border 1.5s infinite;
-        }
-        @keyframes pulse-border { 0%, 100% { border-color: rgba(244,63,94,0.4); } 50% { border-color: var(--rose); } }
-
-        /* Code Block with Run in Terminal + Copy */
         .code-container {
             background-color: #030712;
             border-radius: var(--radius-md);
@@ -402,7 +362,6 @@
             background: #090f1d;
             border-bottom: 1px solid #1a2336;
         }
-        .code-left-info { display: flex; align-items: center; gap: 8px; }
         .code-lang-tag {
             font-family: 'JetBrains Mono', monospace;
             font-size: 11px;
@@ -421,12 +380,8 @@
             cursor: pointer;
             transition: var(--transition-smooth);
             font-family: inherit;
-            display: flex;
-            align-items: center;
-            gap: 4px;
         }
         .btn-action:hover { background: var(--primary); color: #020617; font-weight: 700; }
-        .btn-run:hover { background: var(--emerald) !important; color: #020617 !important; }
 
         pre {
             padding: 16px;
@@ -438,62 +393,6 @@
             white-space: pre-wrap;
             line-height: 1.6;
         }
-
-        /* IN-BROWSER VIRTUAL TERMINAL MODAL */
-        .modal-terminal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.75);
-            backdrop-filter: blur(8px);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 100;
-        }
-        .modal-terminal-box {
-            width: 720px;
-            max-width: 92%;
-            background: #050811;
-            border: 1px solid var(--primary);
-            border-radius: var(--radius-lg);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 30px var(--primary-glow);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            animation: slideIn 0.2s ease-out;
-        }
-        .terminal-topbar {
-            padding: 10px 16px;
-            background: #0f172a;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid #1e293b;
-        }
-        .terminal-dots { display: flex; gap: 6px; }
-        .dot { width: 11px; height: 11px; border-radius: 50%; }
-        .dot-red { background: #ef4444; }
-        .dot-yellow { background: #f59e0b; }
-        .dot-green { background: #10b981; }
-        .terminal-title { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-secondary); }
-        .terminal-screen {
-            height: 320px;
-            padding: 16px;
-            background: #030712;
-            overflow-y: auto;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 13px;
-            line-height: 1.6;
-            color: #4ade80;
-        }
-        .terminal-close-btn {
-            background: transparent;
-            border: none;
-            color: var(--text-muted);
-            font-size: 14px;
-            cursor: pointer;
-        }
-        .terminal-close-btn:hover { color: #fff; }
 
         /* FLOATING INPUT CONTROLS */
         .input-floating-wrapper {
@@ -528,41 +427,6 @@
             transform: translateY(-2px);
         }
 
-        .attachment-badge {
-            display: none;
-            align-items: center;
-            gap: 10px;
-            background: var(--bg-surface);
-            border: 1px solid var(--primary);
-            box-shadow: 0 4px 16px var(--primary-glow);
-            padding: 6px 14px;
-            border-radius: var(--radius-md);
-            width: fit-content;
-            margin-bottom: 10px;
-        }
-        .attachment-badge img {
-            width: 40px;
-            height: 40px;
-            border-radius: 6px;
-            object-fit: cover;
-            border: 1px solid var(--border-subtle);
-        }
-        .attachment-badge .badge-label { font-size: 12.5px; font-weight: 600; color: var(--primary); }
-        .attachment-badge .close-btn {
-            background: #ef4444;
-            color: #fff;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-            cursor: pointer;
-            border: none;
-            font-weight: bold;
-        }
-
         .search-bar {
             background: rgba(17, 26, 46, 0.7);
             backdrop-filter: blur(16px);
@@ -579,482 +443,118 @@
             border-color: var(--primary);
             box-shadow: 0 0 24px var(--primary-glow);
         }
-
-        .icon-btn {
-            background: transparent;
-            border: none;
-            color: var(--text-secondary);
-            font-size: 19px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 6px;
-            border-radius: 50%;
-            transition: var(--transition-smooth);
-            width: 36px;
-            height: 36px;
-        }
-        .icon-btn:hover { color: var(--primary); background: rgba(56, 189, 248, 0.1); transform: scale(1.1); }
-        .icon-btn.recording { color: #ef4444; animation: pulse-mic 1s infinite; }
-        @keyframes pulse-mic { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
-
         .search-input {
             flex: 1;
             background: transparent;
             border: none;
             outline: none;
-            color: #ffffff;
-            font-size: 14.5px;
-            padding: 8px 4px;
-            resize: none;
-            max-height: 120px;
-            line-height: 1.5;
+            color: var(--text-primary);
+            font-size: 14px;
             font-family: inherit;
+            padding: 8px 4px;
         }
-
-        .send-arrow-btn {
-            background: linear-gradient(135deg, #0284c7, #38bdf8);
-            color: #ffffff;
+        .send-btn {
+            background: var(--primary);
+            color: #030712;
             border: none;
-            width: 38px;
-            height: 38px;
             border-radius: 50%;
-            font-size: 18px;
-            cursor: pointer;
+            width: 36px;
+            height: 36px;
             display: flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
+            font-weight: bold;
             transition: var(--transition-smooth);
-            box-shadow: 0 2px 10px rgba(56, 189, 248, 0.3);
         }
-        .send-arrow-btn:hover { transform: scale(1.08) translateY(-1px); }
-
-        /* Print Cheat-Sheet Styling */
-        @media print {
-            body { background: #fff !important; color: #000 !important; overflow: visible !important; }
-            .sidebar, .top-navbar, .input-floating-wrapper, .code-actions { display: none !important; }
-            .main-workspace, .chat-scroll-area { height: auto !important; overflow: visible !important; padding: 0 !important; }
-            .user-bubble { background: #eee !important; color: #000 !important; border: 1px solid #ccc !important; }
-            .bot-bubble { color: #000 !important; }
-            pre { background: #f8fafc !important; color: #000 !important; border: 1px solid #ddd !important; }
+        .send-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 16px var(--primary-glow);
         }
     </style>
 </head>
 <body>
-
-    <!-- SIDEBAR WITH LOCALSTORAGE PERSISTENCE -->
-    <div class="sidebar" id="appSidebar">
+    <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <button class="toggle-btn" onclick="toggleSidebar()" title="Toggle Sidebar">☰</button>
-            <div class="logo-text">⚡ AI Linux Studio</div>
+            <span class="logo-text">⚡ AI Linux Studio</span>
+            <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
         </div>
         <div class="nav-list">
-            <div class="nav-item active" onclick="location.reload()" title="New Chat">
-                <span class="nav-icon">✏️</span>
-                <span class="nav-text">New Session</span>
+            <div class="nav-item active">
+                <span class="nav-icon">💬</span>
+                <span class="nav-text">Active Session</span>
             </div>
-            <div class="nav-item" onclick="openTerminalSimulator('echo \\'Welcome to Student Linux Shell Simulator\\'')" title="Terminal Simulator">
-                <span class="nav-icon">💻</span>
-                <span class="nav-text">Web Shell Sandbox</span>
+            <div class="nav-item" onclick="clearCurrentChat()">
+                <span class="nav-icon">✨</span>
+                <span class="nav-text">New Query</span>
             </div>
         </div>
-
-        <div class="recent-section" id="historyList">
-            <div class="recent-title">Saved Sessions</div>
-        </div>
-
+        <div class="recent-title">History</div>
+        <div class="recent-section" id="historyList"></div>
         <div class="sidebar-footer">
-            <div class="avatar">L</div>
+            <div class="avatar">LX</div>
             <div class="user-label">Linux Systems Mentor</div>
         </div>
     </div>
 
-    <!-- MAIN WORKSPACE -->
     <div class="main-workspace">
         <div class="top-navbar">
-            <div class="top-title">
-                <span>🐧 Linux Terminal & Systems Assistant</span>
-            </div>
-
+            <div class="top-title">🐧 Linux Terminal & Systems Assistant</div>
             <div class="header-actions">
-                <select class="distro-select" id="distroSelect" onchange="switchDistro(this.value)" title="Choose Linux Distribution">
-                    <option value="Ubuntu">📦 Distro: Ubuntu / Debian (apt)</option>
-                    <option value="Arch">🏹 Distro: Arch Linux (pacman)</option>
-                    <option value="Fedora">🎩 Distro: Fedora / RedHat (dnf)</option>
-                    <option value="Kali">🐉 Distro: Kali Linux (Pentest)</option>
+                <select class="distro-select" id="distroSelect">
+                    <option value="Ubuntu / Debian (apt)">Distro: Ubuntu / Debian (apt)</option>
+                    <option value="CentOS / RHEL / Fedora (dnf)">Distro: CentOS / RHEL (dnf)</option>
+                    <option value="Arch Linux (pacman)">Distro: Arch Linux (pacman)</option>
                 </select>
-
-                <button class="export-btn" onclick="exportCheatSheet()" title="Download Session Lab Notes as PDF">
-                    <span>📄</span>
-                    <span>Export Notes</span>
-                </button>
-
-                <div class="status-badge">
-                    <span class="status-dot"></span>
-                    <span>Active & Ready</span>
-                </div>
+                <div class="status-badge"><span class="status-dot"></span> Active & Ready</div>
             </div>
         </div>
 
         <div class="chat-scroll-area" id="chatArea">
             <div class="msg-row">
                 <div class="bot-bubble">
-                    Hello! I am your <b>AI Linux Terminal Mentor</b>.
-                    Ask any Linux commands, shell scripts, multi-line code, or <b>upload an error screenshot</b>.
-                    Includes in-browser <b>Shell Execution</b>, <b>Danger Safety Filters</b>, and <b>Cheat-Sheet Export</b>.
+                    Hello! I am your AI Linux Terminal Mentor. Ask any Linux commands, shell scripts, multi-line code, or error troubleshooting!
                 </div>
             </div>
         </div>
 
         <div class="input-floating-wrapper">
             <div class="quick-action-bar">
-                <div class="quick-chip" onclick="quickAction('top 10 essential linux commands for beginners')">⚡ Beginner Commands</div>
-                <div class="quick-chip" onclick="quickAction('how to check cpu and memory usage in linux terminal')">📊 Terminal Diagnostics</div>
-                <div class="quick-chip" onclick="quickAction('how to create and run a bash script')">📜 Shell Scripting</div>
-                <div class="quick-chip" onclick="quickAction('how to fix permission denied error')">🛡️ Error Troubleshooting</div>
+                <div class="quick-chip" onclick="quickSend('top 10 essential linux commands for beginners')">⚡ Beginner Commands</div>
+                <div class="quick-chip" onclick="quickSend('how to check cpu and memory usage in linux terminal')">📊 Terminal Diagnostics</div>
+                <div class="quick-chip" onclick="quickSend('how to create and run a bash script')">💻 Shell Scripting</div>
+                <div class="quick-chip" onclick="quickSend('how to troubleshoot a failed systemd service')">🔧 Error Troubleshooting</div>
             </div>
-
-            <div class="attachment-badge" id="attachBadge">
-                <img id="badgeImg" src="" alt="Screenshot">
-                <span class="badge-label" id="badgeName">image.png</span>
-                <button class="close-btn" onclick="removeAttachment()">✕</button>
-            </div>
-
             <div class="search-bar">
-                <input type="file" id="fileInput" accept="image/*" style="display:none;" onchange="handleFileSelected(event)">
-                
-                <button class="icon-btn" title="Attach Screenshot/Image" onclick="document.getElementById('fileInput').click()">＋</button>
-
-                <textarea id="userInput" class="search-input" rows="1" placeholder="Ask any Linux command, paste multi-line script, or error..." onkeydown="handleKey(event)"></textarea>
-
-                <button class="icon-btn" id="micBtn" title="Voice Input" onclick="toggleVoice()">🎙️</button>
-
-                <button class="send-arrow-btn" title="Send" onclick="sendQuery()">↑</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- IN-BROWSER WEB TERMINAL SIMULATOR MODAL -->
-    <div class="modal-terminal-overlay" id="terminalModal">
-        <div class="modal-terminal-box">
-            <div class="terminal-topbar">
-                <div class="terminal-dots">
-                    <span class="dot dot-red" onclick="closeTerminalSimulator()"></span>
-                    <span class="dot dot-yellow"></span>
-                    <span class="dot dot-green"></span>
-                </div>
-                <div class="terminal-title">student@linux-sandbox: ~ (Simulated Shell)</div>
-                <button class="terminal-close-btn" onclick="closeTerminalSimulator()">✕</button>
-            </div>
-            <div class="terminal-screen" id="terminalOutput">
-                <div>[student@linux-sandbox ~]$ initializing web terminal simulator...</div>
+                <input type="text" class="search-input" id="userInput" placeholder="Ask any Linux command, paste multi-line script, or error..." onkeydown="handleKey(event)">
+                <button class="send-btn" onclick="sendMessage()">➤</button>
             </div>
         </div>
     </div>
 
     <script>
-        let attachedBase64 = null;
-        let attachedMime = null;
-        let recognition = null;
-        let isRecording = false;
-
-        const textarea = document.getElementById("userInput");
-        textarea.addEventListener("input", () => {
-            textarea.style.height = "auto";
-            textarea.style.height = Math.min(textarea.scrollHeight, 120) + "px";
-        });
-
-        function handleKey(e) {
-            if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                sendQuery();
-            }
-        }
+        const chatArea = document.getElementById("chatArea");
+        const userInput = document.getElementById("userInput");
+        const historyList = document.getElementById("historyList");
+        const distroSelect = document.getElementById("distroSelect");
+        const sidebar = document.getElementById("sidebar");
 
         function toggleSidebar() {
-            document.getElementById("appSidebar").classList.toggle("collapsed");
+            sidebar.classList.toggle("collapsed");
         }
 
-        function switchDistro(distro) {
-            const botBubble = document.createElement("div");
-            botBubble.className = "bot-bubble";
-            botBubble.innerHTML = `<span style="color: #38bdf8;">✓ Active Distribution changed to <b>${distro}</b>. All future package commands will be tailored for ${distro}.</span>`;
-            
-            const row = document.createElement("div");
-            row.className = "msg-row";
-            row.appendChild(botBubble);
-            document.getElementById("chatArea").appendChild(row);
+        function handleKey(e) {
+            if (e.key === "Enter") sendMessage();
         }
 
-        function exportCheatSheet() {
-            window.print();
+        function quickSend(text) {
+            userInput.value = text;
+            sendMessage();
         }
 
-        function getCommandDangerLevel(commandText) {
-            const lower = commandText.toLowerCase();
-            if (lower.includes("rm -rf") || lower.includes("mkfs") || lower.includes(":(){ :|:& };:") || lower.includes("dd if=") || lower.includes("> /dev/sda")) {
-                return {
-                    label: "🔴 Destructive Risk (Permanent System Deletion)",
-                    class: "danger-destructive"
-                };
-            }
-            if (lower.includes("chmod 777") || lower.includes("reboot") || lower.includes("shutdown") || lower.includes("kill -9") || lower.includes("systemctl restart") || lower.includes("apt remove")) {
-                return {
-                    label: "🟡 Caution (Modifies System Services / High Access)",
-                    class: "danger-caution"
-                };
-            }
-            return {
-                label: "🟢 Safe Command (Read-Only / Standard Safe Action)",
-                class: "danger-safe"
-            };
-        }
-
-        function openTerminalSimulator(cmd) {
-            const modal = document.getElementById("terminalModal");
-            const screen = document.getElementById("terminalOutput");
-            modal.style.display = "flex";
-
-            const cleanedCmd = cmd.trim();
-            screen.innerHTML += `<div><span style="color: #38bdf8;">student@linux-sandbox:~$</span> <span style="color: #fff;">${cleanedCmd}</span></div>`;
-
-            setTimeout(() => {
-                let simulatedOutput = "";
-                const lower = cleanedCmd.toLowerCase();
-
-                if (lower.startsWith("pwd")) {
-                    simulatedOutput = "/home/student/projects/ai-linux";
-                } else if (lower.startsWith("ls")) {
-                    simulatedOutput = "total 32K\\ndrwxr-xr-x 4 student student 4.0K backup.sh\\n-rw-r--r-- 1 student student 1.2K notes.txt\\n-rwxr-xr-x 1 student student 8.4K server.py";
-                } else if (lower.startsWith("free")) {
-                    simulatedOutput = "               total        used        free      shared  buff/cache   available\\nMem:           15Gi       3.2Gi       9.1Gi       240Mi       2.7Gi        11Gi\\nSwap:         2.0Gi          0B       2.0Gi";
-                } else if (lower.startsWith("top") || lower.startsWith("htop")) {
-                    simulatedOutput = "top - 14:02:18 up 12 days,  1 user,  load average: 0.12, 0.08, 0.05\\nTasks: 142 total,   1 running, 141 sleeping\\n%Cpu(s):  2.1 us,  0.8 sy,  0.0 ni, 97.1 id";
-                } else if (lower.startsWith("chmod")) {
-                    simulatedOutput = "Permissions updated successfully.";
-                } else if (lower.startsWith("sudo apt update")) {
-                    simulatedOutput = "Hit:1 http://archive.ubuntu.com/ubuntu jammy InRelease\\nReading package lists... Done\\nAll packages are up to date.";
-                } else {
-                    simulatedOutput = `[Execution Completed]: '${cleanedCmd}' executed successfully in simulation.`;
-                }
-
-                screen.innerHTML += `<div style="color: #cbd5e1; white-space: pre-wrap;">${simulatedOutput}</div>`;
-                screen.scrollTop = screen.scrollHeight;
-            }, 300);
-        }
-
-        function closeTerminalSimulator() {
-            document.getElementById("terminalModal").style.display = "none";
-        }
-
-        function loadSavedHistory() {
-            const list = document.getElementById("historyList");
-            list.innerHTML = '<div class="recent-title">Saved Sessions</div>';
-            const history = JSON.parse(localStorage.getItem("linux_chat_history") || "[]");
-            
-            if (history.length === 0) {
-                saveHistoryItem("File Permissions (chmod)");
-                saveHistoryItem("Systemctl & Services");
-                saveHistoryItem("Disk Analysis (df, du)");
-                return;
-            }
-
-            history.forEach(item => {
-                const row = document.createElement("div");
-                row.className = "history-row";
-                row.onclick = () => quickAction(item);
-                row.innerHTML = `
-                    <div class="history-left">
-                        <span>💬</span>
-                        <span class="history-text">${item}</span>
+        function clearCurrentChat() {
+            chatArea.innerHTML = `
+                <div class="msg-row">
+                    <div class="bot-bubble">
+                        Hello! I am your AI Linux Terminal Mentor. Ask any Linux commands, shell scripts, multi-line code, or error troubleshooting!
                     </div>
-                    <button class="del-item-btn" onclick="deleteHistory(event, '${item}')" title="Delete">✕</button>
-                `;
-                list.appendChild(row);
-            });
-        }
-
-        function saveHistoryItem(text) {
-            let history = JSON.parse(localStorage.getItem("linux_chat_history") || "[]");
-            if (!history.includes(text)) {
-                history.unshift(text);
-                if (history.length > 20) history.pop();
-                localStorage.setItem("linux_chat_history", JSON.stringify(history));
-                loadSavedHistory();
-            }
-        }
-
-        function deleteHistory(e, text) {
-            e.stopPropagation();
-            let history = JSON.parse(localStorage.getItem("linux_chat_history") || "[]");
-            history = history.filter(item => item !== text);
-            localStorage.setItem("linux_chat_history", JSON.stringify(history));
-            loadSavedHistory();
-        }
-
-        function quickAction(text) {
-            textarea.value = text;
-            sendQuery();
-        }
-
-        function handleFileSelected(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                attachedBase64 = e.target.result.split(',')[1];
-                attachedMime = file.type;
-
-                document.getElementById("badgeImg").src = e.target.result;
-                document.getElementById("badgeName").innerText = file.name;
-                document.getElementById("attachBadge").style.display = "flex";
-
-                textarea.focus();
-            };
-            reader.readAsDataURL(file);
-        }
-
-        function removeAttachment() {
-            attachedBase64 = null;
-            attachedMime = null;
-            document.getElementById("fileInput").value = "";
-            document.getElementById("attachBadge").style.display = "none";
-            textarea.focus();
-        }
-
-        function toggleVoice() {
-            if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
-                alert("Speech recognition is not supported in this browser.");
-                return;
-            }
-            const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
-
-            if (isRecording) {
-                recognition.stop();
-                return;
-            }
-
-            recognition = new SpeechRec();
-            recognition.continuous = false;
-            recognition.interimResults = false;
-            recognition.lang = 'en-US';
-
-            recognition.onstart = () => {
-                isRecording = true;
-                document.getElementById("micBtn").classList.add("recording");
-            };
-
-            recognition.onresult = (event) => {
-                const text = event.results[0][0].transcript;
-                textarea.value = (textarea.value ? textarea.value + " " : "") + text;
-                textarea.focus();
-            };
-
-            recognition.onerror = () => {
-                isRecording = false;
-                document.getElementById("micBtn").classList.remove("recording");
-            };
-
-            recognition.onend = () => {
-                isRecording = false;
-                document.getElementById("micBtn").classList.remove("recording");
-            };
-
-            recognition.start();
-        }
-
-        function copyCode(btn) {
-            const pre = btn.closest('.code-container').querySelector('pre code');
-            navigator.clipboard.writeText(pre.innerText);
-            btn.innerHTML = "<span>✓ Copied!</span>";
-            setTimeout(() => { btn.innerHTML = "<span>Copy</span>"; }, 2000);
-        }
-
-        function renderReply(container, rawText) {
-            container.innerHTML = marked.parse(rawText);
-            container.querySelectorAll('pre code').forEach(el => {
-                const cmdText = el.innerText;
-                const danger = getCommandDangerLevel(cmdText);
-
-                const box = document.createElement('div');
-                box.className = 'code-container';
-                box.innerHTML = `
-                    <div class="code-header-sticky">
-                        <div class="code-left-info">
-                            <span class="code-lang-tag">bash</span>
-                            <span class="danger-badge ${danger.class}">${danger.label}</span>
-                        </div>
-                        <div class="code-actions">
-                            <button class="btn-action btn-run" onclick="openTerminalSimulator(\`${cmdText.replace(/`/g, '\\\\`')}\`)">▶ Run in Shell</button>
-                            <button class="btn-action" onclick="copyCode(this)">Copy</button>
-                        </div>
-                    </div>
-                    <pre><code>${el.innerHTML}</code></pre>
-                `;
-                el.parentElement.replaceWith(box);
-            });
-        }
-
-        async function sendQuery() {
-            const query = textarea.value.trim();
-            if (!query && !attachedBase64) return;
-
-            const selectedDistro = document.getElementById("distroSelect").value;
-            const chatArea = document.getElementById("chatArea");
-
-            const userRow = document.createElement("div");
-            userRow.className = "msg-row user";
-
-            let bubbleHtml = "";
-            if (attachedBase64) {
-                bubbleHtml += `<img src="data:${attachedMime};base64,${attachedBase64}" class="user-img-preview" alt="Attachment">`;
-            }
-            if (query) {
-                const safeText = query.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-                bubbleHtml += `<div class="user-bubble">${safeText}</div>`;
-                saveHistoryItem(query);
-            }
-
-            userRow.innerHTML = bubbleHtml;
-            chatArea.appendChild(userRow);
-
-            const payload = {
-                message: query,
-                distro: selectedDistro,
-                file_base64: attachedBase64,
-                mime_type: attachedMime
-            };
-
-            textarea.value = "";
-            textarea.style.height = "auto";
-            removeAttachment();
-
-            const row = document.createElement("div");
-            row.className = "msg-row";
-            const botBubble = document.createElement("div");
-            botBubble.className = "bot-bubble";
-            botBubble.innerText = "Querying Linux knowledge base...";
-            row.appendChild(botBubble);
-            chatArea.appendChild(row);
-            chatArea.scrollTop = chatArea.scrollHeight;
-
-            try {
-                const res = await fetch("http://127.0.0.1:5002/api/chat", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(payload)
-                });
-                const data = await res.json();
-                renderReply(botBubble, data.reply);
-            } catch (err) {
-                botBubble.innerText = "Server is not responding. Please ensure launch_app.bat is running.";
-            }
-            chatArea.scrollTop = chatArea.scrollHeight;
-        }
-
-        window.addEventListener("DOMContentLoaded", loadSavedHistory);
-    </script>
-</body>
-</html>
